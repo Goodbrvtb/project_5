@@ -2,7 +2,6 @@ import React, { useState } from "react";
 
 function List({ users, textPar }) {
   const [signs, setSigns] = useState({});
-  console.log(signs);
   const addSigns = (userId) => {
     setSigns((prevSigns) => {
       const currentText = prevSigns[userId];
