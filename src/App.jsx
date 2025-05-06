@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import "./App.css";
 import List from "./Component/list";
-const users = [
+const USERS = [
   {
     id: 1,
     name: "Иван Иванов",
@@ -32,7 +32,7 @@ function App() {
   const [text, setText] = useState("");
   const [ulText, setUlText] = useState("");
   const textInput = useRef(null);
-  const valid = () => {
+  const focusOn = () => {
     textInput.current.focus();
   };
   const handleKeyDown = (event) => {
@@ -54,10 +54,10 @@ function App() {
           onChange={handleChange}
           onKeyDown={handleKeyDown}
         ></input>
-      </div>{" "}
-      <button onClick={() => valid()}>Фокус</button>
+      </div>
+      <button onClick={focusOn}>Фокус</button>
       <div>
-        <List users={users} textPar={ulText} />
+        <List users={USERS} textPar={ulText} />
       </div>
     </>
   );
