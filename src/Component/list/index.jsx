@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 
 function List({ users, textPar }) {
-  const [text, setText] = useState({});
-  const handleClick = (userId) => {
-    setText((prevText) => {
-      const currentText = prevText[userId];
+  const [signs, setSigns] = useState({});
+  console.log(signs);
+  const addSigns = (userId) => {
+    setSigns((prevSigns) => {
+      const currentText = prevSigns[userId];
       if (currentText == "!!! ") {
-        return { ...prevText, [userId]: "" };
+        return { ...prevSigns, [userId]: "" };
       } else {
-        return { ...prevText, [userId]: "!!! " };
+        return { ...prevSigns, [userId]: "!!! " };
       }
     });
   };
@@ -20,9 +21,9 @@ function List({ users, textPar }) {
         {users.map((user) => (
           <li key={user.id}>
             {" "}
-            {text[user.id] || ""} {user.name} Пароль: {user.password}
+            {signs[user.id] || ""} {user.name} Пароль: {user.password}
             <div>
-              <button onClick={() => handleClick(user.id)}>Click</button>
+              <button onClick={() => addSigns(user.id)}>Click</button>
             </div>
           </li>
         ))}
